@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    {{moneyB}} Para {{moneyA}}
+    {{ moneyB }} Para {{ moneyA }}
     <div class="card">
       <div class="body">
         <div class="conteudo">
@@ -13,13 +13,13 @@
               v-bind:placeholder="moneyA"
             />
             <div class="input-group-append">
-              <button type="button" class="btn btn-success" v-on:click="getUrlConverter()">
+              <div class="green">
                 <span class="fa fa-usd"></span>
-              </button>
+              </div>
             </div>
           </div>
         </div>
-        <h2>{{moneyB_value}}</h2>
+        <h2>{{ moneyB_value }}</h2>
       </div>
     </div>
   </div>
@@ -28,31 +28,33 @@
 <script>
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
+
 export default {
-  name: "Conversor",
+  components: "Conversor",
   props: ["moneyA", "moneyB"],
-  data: function() {
+
+  data: function () {
     return {
       moneyA_value: "",
-      moneyB_value: 0
+      moneyB_value: 0,
     };
   },
   methods: {
-    getUrlConverter: function() {
+    getUrlConverter: function () {
       let url = "https://api.exchangerate-api.com/v4/latest/" + this.moneyB;
 
       fetch(url)
-        .then(response => {
+        .then((response) => {
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           let quotation = data.rates[this.moneyA];
           this.moneyB_value = parseFloat(quotation * this.moneyA_value).toFixed(
             2
           );
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -62,9 +64,11 @@ export default {
   margin-right: 10%;
   margin-left: 10%;
 }
+
 .conteudo {
   display: flex;
 }
+
 .card h2 {
   margin-top: 10px;
   margin-left: 6px;

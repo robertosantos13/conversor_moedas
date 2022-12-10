@@ -5,9 +5,10 @@
         Conversor de moedas
         <span class="fa fa-money text-success" arial-hidden="true"></span>
       </h1>
-      <p
-        class="text-secondary"
-      >Este é um simples projeto de conversor de moedas para desenvolvimento pessoal.</p>
+      <p class="text-secondary">
+        Este é um simples projeto de conversor de moedas para desenvolvimento
+        pessoal.
+      </p>
     </div>
     <div class="container">
       <Conversor moneyB="BRL" moneyA="USD" />
@@ -25,21 +26,17 @@
 </template>
 
 <script>
-import Conversor from "./components/Conversor";
+import Conversor from "./components/Conversor.vue";
 export default {
   name: "app",
   components: {
-    Conversor
-  }
+    Conversor,
+  },
 };
 </script>
-  
-<style>
-body {
-  background: #f1f1f1;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
+
+<style scoped>
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -48,5 +45,27 @@ body {
 .text-center {
   margin-bottom: 60px;
   margin-top: 30px;
+}
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
 }
 </style>

@@ -1,0 +1,22 @@
+{
+    "plugins": [
+        "prettier"
+    ],
+    "prettier/prettier": [
+        "error",
+        "eslint-disable",
+        "eslint-disable-next-line",
+        {
+          "singleQuote": true,
+          "parser": "flow"
+        }
+      ],
+    "extends": [
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        "prettier/prettier": ["error", "eslint-disable","eslint-disable-next-line"],
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off"
+    }
+}
